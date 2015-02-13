@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+  <head>
+    <title>FRP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/warden.js"></script>
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="assets/github.css">
+    <script src="assets/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+      });
+      </script>
+  </head>
+    
+  <body>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-12'>
+            
+        <h1 class='g-center'>Источники данных</h1>
+
+          <h4>Из событий</h4>
+                  
+          <pre class='javascript'><code>$('.button').stream('click')</code></pre></td>
+                
+          <h4>Из коллбэка</h4>
+
+          <pre class='javascript'><code>Warden.makeStream(function(emit){
+  $('.button').click(function(e){
+    emit('Рудд!');
+  });
+});</code></code></pre>
+                 
+          <h4>Прослушивание</h4>
+          
+  
+          <div class="stream">
+            <div line='hello' class='line'>
+              <div class='code'>
+                <pre class='javascript'><code>stream.listen(callback)</code></pre>
+              </div>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+          
+          <h1 class='g-center'>map</h1>
+                
+          <div class="stream">
+            <div line='simple' for='redmap' class='line'>
+              <div class='code'>
+                <pre class='javascript'><code>original</code></pre>
+              </div>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+         
+          <div class="stream">  
+            <div line='map' conj='redmap' class='line'>
+              <div class='code'><pre class='javascript'><code>stream.map('value')</code></pre></div>
+              <div class='box'></div>
+            </div>
+          </div>
+                                
+          <div class="stream">
+            <div line='mapp' conj='redmap' class='line'>
+              <div class='code'><pre class='javascript'><code>stream.map('.clientX')</code></pre></div>
+              <div class='box'></div>
+            </div>
+          </div>      
+          
+          
+          <div class="stream">
+            <div line='mapf' conj='redmap' class='line'>
+              <div class='code'><pre class='javascript'><code>stream.map('.toString()')</code></pre></div>
+              <div class='box'></div>
+            </div>
+          </div>
+                                 
+          <div class="stream">
+            <div line='mapcf' class='line' conj='redmap'>
+              <div class="code"><pre class='javascript'><code>stream.map('@width()')</code></pre></div>
+              <div class='box'></div>
+            </div>
+          </div>
+               
+          <h2>Массивы</h2>
+                          
+           <div class="stream">      
+            <div line='mapa' class='line'>
+              <div class='code'><pre class='javascript'><code>stream.map(['a', 'b']).nth(1)</code></pre></div>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+                 
+                 
+<h1 class='g-center'>Фильтры</h1>
+          <h4>filter</h4>
+                 
+<pre class='javascript'><code>stream
+  .map(function(){
+    return Math.random()*100>>0; 
+  })
+  .filer(function(val){
+    return val > 50;
+  })</code></pre>
+          
+          <div class="stream">                 
+            <div line='fvl' class='line'>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+
+          <h4>skip/take</h4>
+          
+          <div class="stream">    
+            <div line='sta' class='line'>
+              <div class='code'><pre class='javascript'><code>stream.skip(3).take(3)</code></pre></div>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+                  
+          <h4>equals</h4>
+               
+                    <pre class='javascript'><code>stream
+  .map(function(){
+    return Math.round(Math.random())
+  })
+  .equals(1)</code></pre>
+          
+          <div class="stream">    
+            <div line='eql' class='line'>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+                    
+
+   <h1 class='g-center'>Композиции</h1>
+          <h4>Слияние</h4>
+                 
+          <pre class='javascript'><code>red.merge(blue)</code></pre>
+                
+          
+          <div class="stream">
+            <div line='red' class='line red'>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+            <div line='blue' class='line blue'>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+            <div line='merged' class='line green'>
+              <div class='line-btn'></div>
+              <div class='box'></div>
+            </div>
+          </div>
+
+          <h4>Синхронизация</h4>
+               
+          <pre class='javascript'><code>red.sync(blue)</code></pre>
+                 
+          
+          <div line='red2' class='line red'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='blue2' class='line blue'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='synced' class='line green'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+                
+          </div>
+        </div>
+      </div>
+
+
+  </body>
+</html>
