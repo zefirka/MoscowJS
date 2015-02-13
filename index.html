@@ -186,6 +186,47 @@
             <div class='line-btn'></div>
             <div class='box'></div>
           </div>
+
+          <h4>Combine</h4>
+               
+          <pre class='javascript'><code>red.map(1).combine(blue.map(2), function(a, b){
+  return (a || 0) + ( b || 0);
+});</code></pre>
+                 
+          
+          <div line='redm1' class='line red'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='bluem1' class='line blue'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='combine' class='line green'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+                
+
+          <h4>Resolve</h4>
+               
+          <pre class='javascript'><code>red.map(random).resolve(blue.map(random), function(a, b){
+  return a > b ? a : b;
+});</code></pre>
+                 
+          
+          <div line='redm2' class='line red'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='bluem2' class='line blue'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
+          <div line='resolve' class='line green'>
+            <div class='line-btn'></div>
+            <div class='box'></div>
+          </div>
                 
           </div>
         </div>

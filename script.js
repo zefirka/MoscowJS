@@ -114,6 +114,34 @@ $(function () {
 		blue3 :  function(stream){
 			return buses.bc3 = stream.map('blue');
 		},
+
+		bluem1 :  function(stream){
+			return buses.bcm = stream.map(2);
+		},
+		redm1 :  function(stream){
+			return buses.rcm = stream.map(1);
+		},
+		combine : function(stream){
+			return buses.rcm.combine(buses.bcm, function(a,b){
+				a = a || 0;
+				b = b || 0;
+				return a + b
+
+			})
+		},
+
+		bluem2 :  function(stream){
+			return buses.bcm1 = stream.map(function(){return Math.random()*100 >> 0});
+		},
+		redm2 :  function(stream){
+			return buses.rcm1 = stream.map(function(){return Math.random()*100 >> 0});
+		},
+		resolve : function(stream){
+			return buses.rcm1.resolveWith(buses.bcm1, function(a,b){
+				return a > b ? a : b
+			});
+		},
+
 		syncedf1 :  function(stream){
 			return buses.rc3.sync(buses.bc3.sync(buses.orag));
 		},
