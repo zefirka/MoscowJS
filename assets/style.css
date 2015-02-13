@@ -1,0 +1,166 @@
+body{
+  font-size: 90%
+}
+
+
+section.open{
+  display: block;
+}
+thead {
+  font-size: 125%;
+  font-weight: bold;
+}
+
+section{
+  position: absolute;
+  padding-top: 45px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: white;
+  display: none;
+}
+
+.g-center{
+  text-align: center;
+}
+
+.stream{
+  
+}
+
+.line{
+  display: inline-block;
+  width: 100%;
+  background: #eee;
+}
+
+.line.red{
+  background: rgb(253, 201, 201);
+}
+
+.line.blue{
+  background: rgb(198, 220, 255);
+}
+
+.line.orange{
+  background: orange;
+}
+
+.line.green .line-btn{
+  display: none
+}
+
+.box a{
+  display: inline-block;
+  font-family: monospace;
+  color: white;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  text-decoration: none;
+}
+
+.line .box i:before{
+  content: "";
+  background-color: black;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  position: absolute;
+  display: inline-block;
+  top: -8px;
+  left: 50%;
+}
+
+.line .box i{
+  text-align: center;
+  display: inline-block;
+  background-color: #eee;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  padding: 2px;
+  max-width: 50px;
+  min-width: 50px;
+  position: absolute;
+  font-size: 10px;
+  font-family: monospace;
+  font-style: normal;
+  border-radius: 2px;
+  right: -24px;
+  top: 58%;
+}
+
+.line{
+  padding: 5px;
+  display: inline-block;
+  height: 70px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.line .code{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.code pre,
+.code pre code{
+  background: transparent !important;
+}
+
+.line:before{
+  content: "";
+  display: inline-block;
+  border-top:solid 2px #666;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+}
+
+.line .title{
+  font-size: 85%;
+  font-family: monospace;
+  text-align: right;
+  font-weight: bold;
+}
+
+.line-btn{
+  position: absolute;
+  left: 0;
+  width: 50px;
+  top: 0;
+  height: 100%;
+  background: rgb(237, 109, 109);
+  cursor: pointer;
+}
+
+code{
+  text-align: left;
+}
+pre{
+  text-align: left;
+  padding: 5px;
+  border: 0;
+}
+
+
+@media (min-width: 992px) {
+  .container {
+    width:990px
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width:1200px
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    width:1400px
+  }
+}
